@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threat Hunting Query Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <h1>🛡️ Threat Hunting Query Assistant</h1>
+        <p>Convert natural language into SIEM queries.</p>
+    </header>
+
+    <main class="container">
+        <section class="query-input-section">
+            <label for="natural-query">Enter your threat hunting request:</label>
+            <textarea id="natural-query" rows="4" placeholder="e.g., Find all PowerShell executions from admin accounts in the last 24 hours"></textarea>
+            
+            <div class="controls-group">
+                <div class="siem-selector">
+                    <label for="target-siem">Target SIEM:</label>
+                    <select id="target-siem">
+                        <option value="kql">Microsoft Sentinel (KQL)</option>
+                        <option value="spl">Splunk (SPL)</option>
+                        <option value="eql">Elastic Security (EQL)</option>
+                        <option value="aql">IBM QRadar (AQL)</option>
+                        <option value="dql">Wazuh (DQL)</option>
+                    </select>
+                </div>
+                <button id="generate-button" class="action-button">Generate Query</button>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="query-output-section">
+            <h2>Generated Query</h2>
+            <div class="output-block query-block">
+                <pre id="generated-query-code">Your generated query will appear here...</pre>
+                <button class="copy-button" data-target="generated-query-code">Copy</button>
+            </div>
+
+            <h2>Explanation</h2>
+            <div class="output-block explanation-block">
+                <p id="query-explanation">A summary of the query's logic and the relevant log sources will be displayed here.</p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="log-suggestions-section">
+            <h2>Log Source Suggestions</h2>
+            <ul id="log-suggestions-list" class="suggestions-list">
+                <li>Sysmon (Process Create - Event ID 1)</li>
+                <li>Windows Event Logs (4688)</li>
+            </ul>
+        </section>
+
+        <hr>
+        
+        <section class="auxiliary-sections">
+            <div class="examples-section">
+                <h2>Quick Examples</h2>
+                <ul id="example-list" class="suggestions-list">
+                    <li data-query="Find all failed login attempts in the last hour">Failed Logins (1h)</li>
+                    <li data-query="List all files created in the C:\Temp folder">Files in Temp Directory</li>
+                </ul>
+            </div>
+            
+            <div class="history-section">
+                <h2>Query History</h2>
+                <ul id="history-list" class="suggestions-list">
+                    <li>No recent queries.</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>Threat Hunting Query Assistant - Built for SOC Analysts</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
