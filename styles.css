@@ -1,0 +1,186 @@
+/* Custom CSS for a dark, cyber-themed UI */
+
+:root {
+    --color-bg-main: #0a0a0a; /* Deep Black */
+    --color-bg-secondary: #1a1a1a; /* Dark Gray */
+    --color-text-main: #e0f7fa; /* Light Cyan/White */
+    --color-accent-blue: #00ffff; /* Neon Blue */
+    --color-accent-shadow: rgba(0, 255, 255, 0.5); /* Glowing effect */
+    --color-border: #333333;
+    --font-mono: 'Roboto Mono', monospace;
+}
+
+body {
+    background-color: var(--color-bg-main);
+    color: var(--color-text-main);
+    font-family: var(--font-mono);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.header, .footer {
+    background-color: var(--color-bg-secondary);
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px solid var(--color-accent-blue);
+    box-shadow: 0 0 10px var(--color-accent-shadow);
+}
+
+.header h1 {
+    margin: 0;
+    color: var(--color-accent-blue);
+    text-shadow: 0 0 5px var(--color-accent-shadow);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+hr {
+    border: none;
+    border-top: 1px dashed var(--color-border);
+    margin: 40px 0;
+}
+
+section {
+    padding: 20px 0;
+}
+
+/* Input Styles */
+textarea, select {
+    width: 100%;
+    padding: 15px;
+    margin-top: 8px;
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-main);
+    border: 1px solid var(--color-accent-blue);
+    box-shadow: 0 0 5px var(--color-accent-shadow);
+    resize: vertical;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.controls-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.siem-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+select {
+    width: auto;
+    min-width: 200px;
+    padding: 10px;
+}
+
+.action-button {
+    background-color: var(--color-accent-blue);
+    color: var(--color-bg-main);
+    border: none;
+    padding: 12px 25px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 10px var(--color-accent-shadow);
+}
+
+.action-button:hover {
+    background-color: #00e6e6; /* Lighter shade on hover */
+    box-shadow: 0 0 15px #00e6e6;
+}
+
+/* Output Styles */
+.output-block {
+    position: relative;
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    padding: 15px;
+    margin-top: 10px;
+    overflow-x: auto;
+}
+
+.query-block pre {
+    margin: 0;
+    padding-right: 60px; /* Space for the copy button */
+    white-space: pre-wrap; /* Better for long queries */
+    word-break: break-all;
+    color: var(--color-accent-blue);
+}
+
+.copy-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: var(--color-accent-blue);
+    color: var(--color-bg-main);
+    border: none;
+    cursor: pointer;
+}
+
+.explanation-block p {
+    color: var(--color-text-main);
+    margin: 0;
+}
+
+/* Suggestions and History */
+.auxiliary-sections {
+    display: flex;
+    gap: 40px;
+}
+
+.examples-section, .history-section {
+    flex: 1;
+}
+
+.suggestions-list {
+    list-style: none;
+    padding: 0;
+}
+
+.suggestions-list li {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    padding: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.suggestions-list li:hover {
+    background-color: #2a2a2a;
+    border-color: var(--color-accent-blue);
+}
+
+/* Footer Style */
+.footer {
+    border-top: 2px solid var(--color-accent-blue);
+    border-bottom: none;
+    font-size: 0.8em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .controls-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .siem-selector {
+        margin-bottom: 15px;
+    }
+
+    .auxiliary-sections {
+        flex-direction: column;
+    }
+}
